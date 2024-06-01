@@ -50,7 +50,7 @@ def block_fourier_analysis(file_path, block_size=256, shift=1, duration=60):
         #print(f'Progress: {progress:.2f}%')
 
     tracemalloc.stop()  # Speicherüberwachung stoppen
-
+    print("Analyse fertig.")
     # Umwandlung der Magnitudenliste in ein 2D-Array für das Spektrogramm
     magnitude_array = np.array(magnitude_blocks).T
 
