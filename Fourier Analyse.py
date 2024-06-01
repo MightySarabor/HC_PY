@@ -92,7 +92,7 @@ def plot_memory_usage(memory_usage):
 file_path = 'audio.wav'  # Ersetze dies durch den Pfad zu deiner heruntergeladenen Datei
 
 # Beispiel für das Setzen von eigenen Werten für die Parameter
-block_size = 512  # Blockgröße in Samples
+block_size = 256  # Blockgröße in Samples
 shift = 1  # Anzahl der Samples, um die der Block bei jedem Schritt verschoben wird
 dur = 60
 
