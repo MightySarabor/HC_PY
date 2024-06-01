@@ -39,16 +39,15 @@ def block_fourier_analysis(file_path, block_size=256, shift=1, duration=60):
         time_blocks.append(start / sampling_rate)
         magnitude_blocks.append(magnitude[:block_size // 2])
 
-        # Speicherverbrauch erfassen in regelmäßigen Abständen (z.B. alle 10 Iterationen)
-        if i % 10 == 0:
-            current, peak = tracemalloc.get_traced_memory()
-            elapsed_time = time.time() - start_time
-            memory_usage.append((elapsed_time, current, peak))
-            elapsed_time_intervals.append(elapsed_time)
+        # Speicherverbrauch erfassen und ausgeben in jedem Loop
+        current, _ = tracemalloc.get_traced_memory()
+        elapsed_time = time.time() - start_time
+        memory_usage.append((elapsed_time, current))
+        print(f"Elapsed time: {elapsed_time:.2f}s, Current memory usage: {current / (1024 * 1024):.2f} MB")
 
         # Fortschrittsanzeige ausgeben
-        progress = (i + 1) / total_iterations * 100
-        print(f'Progress: {progress:.2f}%')
+        #progress = (i + 1) / total_iterations * 100
+        #print(f'Progress: {progress:.2f}%')
 
     tracemalloc.stop()  # Speicherüberwachung stoppen
 
@@ -104,4 +103,4 @@ time_blocks, magnitude_array, memory_usage, sampling_rate, elapsed_time_interval
 #plot_spectrogram(time_blocks, magnitude_array, sampling_rate, block_size)
 
 # Speicherverbrauch plotten
-plot_memory_usage(memory_usage)
+#plot_memory_usage(memory_usage)
