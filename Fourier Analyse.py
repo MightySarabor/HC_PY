@@ -71,11 +71,11 @@ def plot_spectrogram(time_blocks, magnitude_array, sampling_rate, block_size):
 
 # Plotten des Speicherverbrauchs
 def plot_memory_usage(memory_usage):
-    elapsed_time, current_usage, peak_usage = zip(*memory_usage)
+    elapsed_time, current_usage = zip(*memory_usage)
 
     # Speicherverbrauch in Megabytes umrechnen
     current_usage_mb = np.array(current_usage) / (1024 * 1024)
-    peak_usage_mb = np.array(peak_usage) / (1024 * 1024)
+    #peak_usage_mb = np.array(peak_usage) / (1024 * 1024)
 
     plt.figure(figsize=(12, 6))
     plt.plot(elapsed_time, current_usage_mb, label='Aktueller Speicherverbrauch (MB)')
@@ -97,10 +97,10 @@ dur = 60
 
 # Fourier-Analyse durchführen (auf die ersten 60 Sekunden beschränkt)
 # Hier werden die explizit gesetzten Werte verwendet
-time_blocks, magnitude_array, memory_usage, sampling_rate, elapsed_time_intervals = block_fourier_analysis(file_path, block_size, shift, dur)
+time_blocks, magnitude_array, memory_usage, sampling_rate, elapsed_time_intervals = (block_fourier_analysis(file_path, block_size, shift, dur) )
 
 # Spektrogramm plotten
 #plot_spectrogram(time_blocks, magnitude_array, sampling_rate, block_size)
 
 # Speicherverbrauch plotten
-#plot_memory_usage(memory_usage)
+plot_memory_usage(memory_usage)

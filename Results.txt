@@ -12,7 +12,7 @@ Für Windows habe ich den Speicherbedarf auch graphisch dargestellt, auf Linux w
 In Java habe ich den Speicherverbrauch mit memoryusage.used verfolgt, was den Speicherverbrauch der JVM zu einem bestimmten Zeitpunkt anzeigt. Die Werte habe ich gespeichert und geplottet.
 
 
-Zwischen den Betriebssystemen gab es einen Unterschied beim Umgang eines zu hohem Verbrauch des Arbeitspeichers. Beim Ausführen in Windows hat sich das Programm bei einem zu hohen Speicherverbrauch aufgehangen. Soweit, dass sogar mein ganzer Laptop langsamer wurde. Außerdem ist Linux deutlich schneller (ca 250 Sekunden) und hat nahezu den gleichen Speicherverbraucht (2MB Unterschied).
+Zwischen den Betriebssystemen gab es einen Unterschied beim Umgang eines zu hohem Verbrauch des Arbeitspeichers. Beim Ausführen in Windows hat sich das Programm bei einem zu hohen Speicherverbrauch auf gehangen. Soweit, dass sogar mein ganzer Laptop langsamer wurde. Außerdem ist aufgefallen, dass der Speicherbedarf bei jeder Ausführung identisch ist (bei gleichem OS). Zwischen Linux und Windows gibt es einen Unterschied von 2MB.
 In Linux wurde der Prozess gekillt, wenn der Speicherverbrauch zu groß wurde. 
 Zwischen Python und Java gab es einen Unterschied zwischen der Speichervewaltung selbst. In Python ist der Verbrauch sehr linear gestiegen. 
 In Java hingegen wurde in regelmäßigen Abständen Speicher freigegeben, sodass der Höchstverbrauch sich in Grenzen gehalten hat. Ich vermute, dass der Garbagecollector dafür zuständig war. Außerdem musste ich in Java den Speicherplatz der JVM vergrößern, um mein Programm ausführen zu können.
